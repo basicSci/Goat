@@ -1,9 +1,8 @@
-
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import unittest
 
-class NewVisTest(unittest.TestCase):
+class NewVisTest(LiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -19,7 +18,7 @@ class NewVisTest(unittest.TestCase):
 
     def test_can_start_a_list_and_retrieve_it_later(self):
         # check homepage
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url)
 
         #Note ToDo in title
         self.assertIn('ToDo', self.browser.title)
@@ -53,5 +52,3 @@ class NewVisTest(unittest.TestCase):
 
         #will add story here...
 
-if __name__ == '__main__':
-    unittest.main(warnings='ignore')
