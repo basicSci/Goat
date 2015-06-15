@@ -1,8 +1,8 @@
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-class NewVisTest(LiveServerTestCase):
+class NewVisTest(StaticLiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -92,7 +92,7 @@ class NewVisTest(LiveServerTestCase):
             delta=5
         )
 
-# She starts a new list; also nicely centered
+        # She starts a new list; also nicely centered
         inputbox.send_keys('testing\n')
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertAlmostEqual(
