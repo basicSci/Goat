@@ -79,7 +79,6 @@ class NewVisTest(LiveServerTestCase):
         self.assertIn('Buy milk', page_text)
 
 
-        self.fail('Finish the test!')
 
         #will add story here...
 
